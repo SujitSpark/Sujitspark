@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="190" viewBox="0 0 860 190" role="img" aria-label="Pipeline: question, retrieve with pgvector, generate with an LLM, guardrails, judge with DeepEval, cited answer.">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#29389A"/>
+      <stop offset="1" stop-color="#C5E654"/>
+    </linearGradient>
+    <filter id="blur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4"/></filter>
+  </defs>
+  <style>
+    .t { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 15px; font-weight: 700; fill: #ffffff; }
+    .s { font-family: 'SFMono-Regular', Consolas, Menlo, monospace; font-size: 12px; fill: #c9d1d9; }
+    .cap { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 14px; fill: #8b949e; font-style: italic; }
+    .box { fill: #0D1025; stroke: #29389A; stroke-width: 2; }
+    .end { fill: #0D1025; stroke: #C5E654; stroke-width: 2.5; }
+  </style>
+
+  <rect x="1" y="1" width="858" height="188" rx="16" fill="#0b0e1f"/>
+
+  <!-- track -->
+  <path id="track" d="M 70 80 H 790" stroke="url(#g)" stroke-width="3" stroke-dasharray="6 7" fill="none">
+    <animate attributeName="stroke-dashoffset" from="26" to="0" dur="0.8s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- stages -->
+  <g>
+    <rect class="box" x="16"  y="52" width="112" height="56" rx="12"/>
+    <text class="t" x="72"  y="77" text-anchor="middle">❓ Question</text>
+    <text class="s" x="72"  y="96" text-anchor="middle">user / PDF</text>
+
+    <rect class="box" x="156" y="52" width="112" height="56" rx="12"/>
+    <text class="t" x="212" y="77" text-anchor="middle">🔎 Retrieve</text>
+    <text class="s" x="212" y="96" text-anchor="middle">pgvector · HNSW</text>
+
+    <rect class="box" x="296" y="52" width="112" height="56" rx="12"/>
+    <text class="t" x="352" y="77" text-anchor="middle">🧠 Generate</text>
+    <text class="s" x="352" y="96" text-anchor="middle">Ollama · Gemini</text>
+
+    <rect class="box" x="436" y="52" width="112" height="56" rx="12"/>
+    <text class="t" x="492" y="77" text-anchor="middle">🛡️ Guard</text>
+    <text class="s" x="492" y="96" text-anchor="middle">injection · scope</text>
+
+    <rect class="box" x="576" y="52" width="112" height="56" rx="12"/>
+    <text class="t" x="632" y="77" text-anchor="middle">⚖️ Judge</text>
+    <text class="s" x="632" y="96" text-anchor="middle">DeepEval · pytest</text>
+
+    <rect class="end" x="716" y="52" width="128" height="56" rx="12"/>
+    <text class="t" x="780" y="77" text-anchor="middle" style="fill:#C5E654">✓ Answer</text>
+    <text class="s" x="780" y="96" text-anchor="middle">with its source</text>
+  </g>
+
+  <!-- travelling query -->
+  <circle r="10" fill="#C5E654" opacity="0.55" filter="url(#blur)">
+    <animateMotion dur="4.5s" repeatCount="indefinite" keyPoints="0;0.19;0.19;0.39;0.39;0.58;0.58;0.78;0.78;1" keyTimes="0;0.12;0.2;0.32;0.4;0.52;0.6;0.72;0.8;1" calcMode="linear"><mpath href="#track"/></animateMotion>
+  </circle>
+  <circle r="5" fill="#ffffff">
+    <animateMotion dur="4.5s" repeatCount="indefinite" keyPoints="0;0.19;0.19;0.39;0.39;0.58;0.58;0.78;0.78;1" keyTimes="0;0.12;0.2;0.32;0.4;0.52;0.6;0.72;0.8;1" calcMode="linear"><mpath href="#track"/></animateMotion>
+  </circle>
+
+  <text class="cap" x="430" y="150" text-anchor="middle">every answer is retrieved, generated, guarded, and scored before anyone trusts it</text>
+</svg>
